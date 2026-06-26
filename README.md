@@ -1,2 +1,3 @@
 # FellowsAccountingServices
-Prototype Site for Chris
+
+Simple HTML, CSS, and JavaScript prototype site for Fellows Accounting Services.
