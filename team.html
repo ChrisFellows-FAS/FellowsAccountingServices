@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meet the Team | Fellows Accounting Solutions</title>
+  <meta name="description" content="Get to know the experienced team at Fellows Accounting Solutions dedicated to helping service businesses thrive.">
+
+  <link rel="icon" href="Assets/FAS-Icon.svg" type="image/svg+xml">
+
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'bg-base': '#F8F7F4',
+            surface: '#FFFFFF',
+            primary: {
+              DEFAULT: '#1F2937',
+              dark: '#111827',
+            },
+            'text-primary': '#1F2937',
+            'warm-gray': '#57534E',
+            neutral: '#64748B',
+            accent: {
+              DEFAULT: '#B8860B',
+              hover: '#9A7209',
+              50: '#FBF7ED',
+              100: '#F5EDD6',
+              200: '#E8D9A8',
+              light: '#F5EDD6',
+            },
+            quickbooks: {
+              DEFAULT: '#2CA01C',
+              dark: '#248517',
+            },
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    /* Consistent with main site */
+    .team-card {
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .team-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.05), 0 4px 6px -4px rgb(0 0 0 / 0.05);
+    }
+    .nav-active {
+      color: #1F2937;
+      font-weight: 600;
+    }
+
+    /* Modal styles (copied from main site) */
+    #booking-modal {
+      transition: opacity 0.2s ease;
+    }
+    #booking-modal.modal-hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
+    #booking-modal.modal-visible {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    #modal-panel {
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+    #booking-modal.modal-hidden #modal-panel {
+      transform: scale(0.95) translateY(0.5rem);
+      opacity: 0;
+    }
+    #booking-modal.modal-visible #modal-panel {
+      transform: scale(1) translateY(0);
+      opacity: 1;
+    }
+
+    /* Floating CTA styles */
+    #floating-cta {
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+    #floating-cta.hidden-cta {
+      opacity: 0;
+      transform: translateY(1rem);
+      pointer-events: none;
+    }
+    #floating-cta.visible-cta {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+  </style>
+</head>
+<body class="font-sans text-primary antialiased bg-base">
+
+  <!-- NAVIGATION -->
+  <header id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-surface/95 backdrop-blur-md border-b border-neutral transition-shadow duration-300">
+    <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16 lg:h-18">
+        <!-- Logo -->
+        <a href="index.html" class="flex items-center gap-2 group">
+          <div class="w-9 h-9 rounded-lg overflow-hidden shadow-md">
+            <img src="Assets/FAS-Icon.svg" alt="FAS" class="w-9 h-9">
+          </div>
+          <span class="font-semibold text-primary text-lg hidden sm:block">Fellows Accounting Solutions</span>
+        </a>
+
+        <!-- Desktop Navigation -->
+        <div class="hidden lg:flex items-center gap-8">
+          <a href="index.html#services" class="text-sm font-medium text-warm-gray hover:text-accent transition-colors">Services</a>
+          <a href="index.html#packages" class="text-sm font-medium text-warm-gray hover:text-accent transition-colors">Packages</a>
+          <a href="index.html#how-it-works" class="text-sm font-medium text-warm-gray hover:text-accent transition-colors">How It Works</a>
+          <a href="index.html#testimonials" class="text-sm font-medium text-warm-gray hover:text-accent transition-colors">Testimonials</a>
+          <a href="team.html" class="text-sm font-medium text-warm-gray hover:text-accent transition-colors nav-active">Team</a>
+          <a href="index.html#about" class="text-sm font-medium text-warm-gray hover:text-accent transition-colors">About</a>
+          <button
+            type="button"
+            class="open-modal-btn inline-flex items-center px-5 py-2.5 rounded-lg bg-primary text-surface text-sm font-semibold hover:bg-primary-dark transition-colors shadow-sm"
+          >
+            Book a Free Discovery Call
+          </button>
+        </div>
+
+        <!-- Mobile Hamburger -->
+        <button
+          id="mobile-menu-btn"
+          type="button"
+          class="lg:hidden p-2 rounded-lg text-warm-gray hover:bg-base transition-colors"
+          aria-label="Toggle menu"
+          aria-expanded="false"
+        >
+          <svg id="menu-icon-open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+          <svg id="menu-icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Mobile Menu -->
+      <div id="mobile-menu" class="lg:hidden hidden pb-4 border-t border-neutral/60">
+        <div class="flex flex-col gap-1 pt-3">
+          <a href="index.html#services" class="mobile-nav-link px-3 py-2.5 rounded-lg text-sm font-medium text-warm-gray hover:bg-base hover:text-accent">Services</a>
+          <a href="index.html#packages" class="mobile-nav-link px-3 py-2.5 rounded-lg text-sm font-medium text-warm-gray hover:bg-base hover:text-accent">Packages</a>
+          <a href="index.html#how-it-works" class="mobile-nav-link px-3 py-2.5 rounded-lg text-sm font-medium text-warm-gray hover:bg-base hover:text-accent">How It Works</a>
+          <a href="index.html#testimonials" class="mobile-nav-link px-3 py-2.5 rounded-lg text-sm font-medium text-warm-gray hover:bg-base hover:text-accent">Testimonials</a>
+          <a href="team.html" class="mobile-nav-link px-3 py-2.5 rounded-lg text-sm font-medium text-warm-gray hover:bg-base hover:text-accent">Team</a>
+          <a href="index.html#about" class="mobile-nav-link px-3 py-2.5 rounded-lg text-sm font-medium text-warm-gray hover:bg-base hover:text-accent">About</a>
+          <button
+            type="button"
+            class="open-modal-btn mt-2 mx-3 inline-flex items-center justify-center px-5 py-3 rounded-lg bg-primary text-surface text-sm font-semibold hover:bg-primary-dark transition-colors"
+          >
+            Book a Free Discovery Call
+          </button>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- HERO / INTRO -->
+    <section class="pt-28 pb-16 lg:pt-32 lg:pb-20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-3xl">
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-primary leading-tight tracking-tight">
+            Meet the team behind<br>your financial clarity.
+          </h1>
+          <p class="mt-6 text-xl text-warm-gray leading-relaxed max-w-2xl">
+            We're a small, dedicated group of accounting professionals who believe great bookkeeping is the foundation for confident business growth.
+          </p>
+          <div class="mt-8 flex flex-wrap gap-4">
+            <a href="#team" class="inline-flex items-center justify-center px-8 py-3.5 rounded-xl bg-primary text-surface font-semibold text-base hover:bg-primary-dark transition-all">
+              Meet everyone
+            </a>
+            <a href="index.html#about" class="inline-flex items-center justify-center px-8 py-3.5 rounded-xl border-2 border-primary text-primary font-semibold text-base hover:bg-primary/5 transition-all">
+              Learn our story
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TEAM GRID -->
+    <section id="team" class="scroll-mt-20 lg:scroll-mt-24 py-12 lg:py-16 bg-base">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          
+          <!-- Chris Fellows -->
+          <article class="team-card bg-surface rounded-2xl border border-neutral overflow-hidden">
+            <div class="h-80 overflow-hidden">
+              <img src="Assets/FAS-Headshot.jpeg" alt="Chris Fellows, Founder" class="w-full h-full object-cover">
+            </div>
+            <div class="p-8">
+              <h3 class="text-2xl font-bold text-primary">Chris Fellows</h3>
+              <p class="text-accent font-medium">Founder</p>
+              <p class="mt-4 text-sm text-warm-gray leading-relaxed">
+                With over 30 years of experience in accounting and bookkeeping across service industries, Chris founded the firm to bring clarity and strategic partnership to growing businesses.
+              </p>
+              <div class="mt-5 pt-4 border-t border-neutral/60 text-xs text-warm-gray">
+                QuickBooks Advanced Certified • 30+ years experience
+              </div>
+            </div>
+          </article>
+
+          <!-- Rebecca Duncan -->
+          <article class="team-card bg-surface rounded-2xl border border-neutral overflow-hidden">
+            <div class="h-80 bg-gradient-to-br from-accent/10 to-primary/5 flex items-center justify-center">
+              <div class="w-24 h-24 rounded-full bg-accent/20 flex items-center justify-center">
+                <span class="text-accent text-4xl font-bold">RD</span>
+              </div>
+            </div>
+            <div class="p-8">
+              <h3 class="text-2xl font-bold text-primary">Rebecca Duncan</h3>
+              <p class="text-accent font-medium">Senior Accounting Specialist</p>
+              <p class="mt-4 text-sm text-warm-gray leading-relaxed">
+                Rebecca brings 15 years of hands-on experience in detailed bookkeeping, reconciliations, and financial reporting for consulting and professional services firms.
+              </p>
+              <div class="mt-5 pt-4 border-t border-neutral/60 text-xs text-warm-gray">
+                QuickBooks ProAdvisor • Project &amp; client accounting expert
+              </div>
+            </div>
+          </article>
+
+          <!-- Steven Fellows -->
+          <article class="team-card bg-surface rounded-2xl border border-neutral overflow-hidden">
+            <div class="h-80 bg-gradient-to-br from-accent/10 to-primary/5 flex items-center justify-center">
+              <div class="w-24 h-24 rounded-full bg-accent/20 flex items-center justify-center">
+                <span class="text-accent text-4xl font-bold">SF</span>
+              </div>
+            </div>
+            <div class="p-8">
+              <h3 class="text-2xl font-bold text-primary">Steven Fellows</h3>
+              <p class="text-accent font-medium">Senior Accounting Specialist</p>
+              <p class="mt-4 text-sm text-warm-gray leading-relaxed">
+                Steven specializes in month-end closes, cash flow forecasting, and advanced QuickBooks optimization. He works closely with clients on strategic financial insights.
+              </p>
+              <div class="mt-5 pt-4 border-t border-neutral/60 text-xs text-warm-gray">
+                18 years experience • QuickBooks Advanced Certified
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- OUR APPROACH / VALUES -->
+    <section class="py-20 lg:py-24 bg-surface">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-3xl mx-auto text-center mb-12">
+          <h2 class="text-3xl sm:text-4xl font-bold text-primary">Small team. Big impact.</h2>
+          <p class="mt-4 text-lg text-warm-gray">
+            We believe in quality over quantity. Every client gets direct access to experienced professionals who actually know your business.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="p-6 rounded-2xl border border-neutral bg-base">
+            <h3 class="font-bold text-primary mb-2">Personal Partnership</h3>
+            <p class="text-sm text-warm-gray">You get a dedicated point of contact who knows your numbers and your goals — not a ticket system.</p>
+          </div>
+          <div class="p-6 rounded-2xl border border-neutral bg-base">
+            <h3 class="font-bold text-primary mb-2">Proactive Communication</h3>
+            <p class="text-sm text-warm-gray">We don’t wait for problems. We flag opportunities and issues early with clear recommendations.</p>
+          </div>
+          <div class="p-6 rounded-2xl border border-neutral bg-base">
+            <h3 class="font-bold text-primary mb-2">Continuous Improvement</h3>
+            <p class="text-sm text-warm-gray">We regularly review processes and suggest better ways to work as your business evolves.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SIMPLE CTA -->
+    <section class="py-16 bg-base border-t border-neutral/60">
+      <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-3xl font-bold text-primary">Want to work with us?</h2>
+        <p class="mt-3 text-lg text-warm-gray">Book a free 30-minute discovery call to see if we’re the right fit for your business.</p>
+        <button type="button" class="open-modal-btn mt-8 inline-flex items-center justify-center px-10 py-4 rounded-xl bg-primary text-surface font-semibold text-base hover:bg-primary-dark transition-all shadow-sm">
+          Book a Free Discovery Call
+        </button>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="py-12 bg-primary text-neutral">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+        <div class="flex items-center gap-2">
+          <div class="w-8 h-8 rounded-lg bg-accent flex items-center justify-center text-surface font-bold text-xs">FAS</div>
+          <span class="font-semibold text-surface">Fellows Accounting Solutions</span>
+        </div>
+        <p class="text-sm">&copy; 2026 Fellows Accounting Solutions. All rights reserved.</p>
+        <div class="flex gap-6 text-sm">
+          <a href="index.html" class="hover:text-surface transition-colors">Home</a>
+          <a href="index.html#services" class="hover:text-surface transition-colors">Services</a>
+          <a href="index.html#about" class="hover:text-surface transition-colors">About</a>
+          <a href="team.html" class="hover:text-surface transition-colors">Team</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- BOOKING MODAL (simplified reuse) -->
+  <div id="booking-modal" class="modal-hidden fixed inset-0 z-50 flex items-center justify-center p-4">
+    <div id="modal-backdrop" class="absolute inset-0 bg-primary/60 backdrop-blur-sm"></div>
+    <div id="modal-panel" class="relative w-full max-w-lg bg-surface rounded-2xl shadow-2xl overflow-hidden">
+      <div class="flex items-center justify-between px-6 py-4 border-b border-neutral/60">
+        <h2 class="text-xl font-bold text-primary">Book a Free Discovery Call</h2>
+        <button id="close-modal-btn" type="button" class="p-2 rounded-lg text-warm-gray hover:text-primary hover:bg-base transition-colors">✕</button>
+      </div>
+      <div class="px-6 py-6">
+        <p class="text-sm text-warm-gray mb-6">Tell us a bit about your business and we’ll reach out to schedule your free 30-minute call.</p>
+        <form id="booking-form" class="space-y-4">
+          <div>
+            <label class="block text-sm font-medium text-primary mb-1">Full Name</label>
+            <input type="text" id="name" required class="w-full px-4 py-2.5 rounded-lg border border-neutral text-primary placeholder-warm-gray focus:outline-none focus:ring-2 focus:ring-accent">
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-primary mb-1">Email Address</label>
+            <input type="email" id="email" required class="w-full px-4 py-2.5 rounded-lg border border-neutral text-primary placeholder-warm-gray focus:outline-none focus:ring-2 focus:ring-accent">
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-primary mb-1">Company Name</label>
+            <input type="text" id="company" class="w-full px-4 py-2.5 rounded-lg border border-neutral text-primary placeholder-warm-gray focus:outline-none focus:ring-2 focus:ring-accent">
+          </div>
+          <button type="submit" class="w-full py-3.5 rounded-xl bg-primary text-surface font-semibold hover:bg-primary-dark transition-colors">
+            Request My Discovery Call
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- FLOATING CTA -->
+  <button id="floating-cta" type="button" class="open-modal-btn fixed bottom-6 right-6 z-40 hidden-cta inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-primary text-surface font-semibold text-sm shadow-2xl hover:bg-primary-dark transition-colors">
+    Book a Call
+  </button>
+
+  <script>
+    // Mobile menu
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const menuIconOpen = document.getElementById('menu-icon-open');
+    const menuIconClose = document.getElementById('menu-icon-close');
+
+    if (mobileMenuBtn) {
+      mobileMenuBtn.addEventListener('click', function () {
+        const isOpen = !mobileMenu.classList.contains('hidden');
+        mobileMenu.classList.toggle('hidden');
+        menuIconOpen.classList.toggle('hidden');
+        menuIconClose.classList.toggle('hidden');
+        mobileMenuBtn.setAttribute('aria-expanded', String(!isOpen));
+      });
+    }
+
+    // Modal
+    const modal = document.getElementById('booking-modal');
+    const modalBackdrop = document.getElementById('modal-backdrop');
+    const closeModalBtn = document.getElementById('close-modal-btn');
+    const bookingForm = document.getElementById('booking-form');
+    const openModalBtns = document.querySelectorAll('.open-modal-btn');
+
+    function openModal() {
+      if (modal) {
+        modal.classList.remove('modal-hidden');
+        modal.classList.add('modal-visible');
+        document.body.style.overflow = 'hidden';
+      }
+    }
+
+    function closeModal() {
+      if (modal) {
+        modal.classList.remove('modal-visible');
+        modal.classList.add('modal-hidden');
+        document.body.style.overflow = '';
+      }
+    }
+
+    openModalBtns.forEach(function (btn) {
+      btn.addEventListener('click', openModal);
+    });
+
+    if (closeModalBtn) closeModalBtn.addEventListener('click', closeModal);
+    if (modalBackdrop) modalBackdrop.addEventListener('click', closeModal);
+
+    if (bookingForm) {
+      bookingForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+        const name = document.getElementById('name').value;
+        closeModal();
+        alert('Thank you, ' + name + '! We\'ll be in touch within one business day.');
+        bookingForm.reset();
+      });
+    }
+
+    // Floating CTA
+    const floatingCta = document.getElementById('floating-cta');
+    const heroSection = document.querySelector('section');
+
+    if (floatingCta && heroSection) {
+      window.addEventListener('scroll', function () {
+        const heroBottom = heroSection.getBoundingClientRect().bottom;
+        if (heroBottom < 0) {
+          floatingCta.classList.remove('hidden-cta');
+          floatingCta.classList.add('visible-cta');
+        } else {
+          floatingCta.classList.remove('visible-cta');
+          floatingCta.classList.add('hidden-cta');
+        }
+      });
+    }
+  </script>
+</body>
+</html>
