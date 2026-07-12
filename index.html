@@ -101,6 +101,18 @@
     .testimonials-scroll::-webkit-scrollbar {
       display: none; /* Chrome, Safari, Edge */
     }
+    /* Testimonial read-more clamp */
+    .quote-clamp {
+      display: -webkit-box;
+      -webkit-line-clamp: 5;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      min-height: 8.2em;
+    }
+    .quote-clamp.expanded {
+      -webkit-line-clamp: unset;
+      overflow: visible;
+    }
   </style>
 </head>
 <body class="font-sans text-primary antialiased bg-base">
@@ -185,10 +197,10 @@
     >
       <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div class="hero-glass max-w-3xl mx-auto rounded-2xl border border-surface/30 shadow-2xl p-8 sm:p-10 lg:p-12">
-          <p class="hero-badge inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-quickbooks text-white text-sm font-semibold mb-6 shadow-md">
-            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
-            QuickBooks ProAdvisor Certified
-          </p>
+<!--          <p class="hero-badge inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-quickbooks text-white text-sm font-semibold mb-6 shadow-md">-->
+<!--            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>-->
+<!--            QuickBooks ProAdvisor Certified-->
+<!--          </p>-->
 
           <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-primary leading-tight tracking-tight">
             Financial clarity for
@@ -229,19 +241,19 @@
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-12 text-center md:text-left">
           <!-- QuickBooks ProAdvisor Badge -->
-          <div class="flex items-center gap-4">
-            <div class="w-14 h-14 rounded-xl bg-quickbooks flex items-center justify-center flex-shrink-0">
-              <svg class="w-8 h-8 text-white" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
-              </svg>
-            </div>
-            <div>
-              <p class="font-bold text-primary text-lg">QuickBooks ProAdvisor Certified</p>
-              <p class="text-sm text-warm-gray">Advanced certified in QuickBooks Online</p>
-            </div>
-          </div>
+<!--          <div class="flex items-center gap-4">-->
+<!--            <div class="w-14 h-14 rounded-xl bg-quickbooks flex items-center justify-center flex-shrink-0">-->
+<!--              <svg class="w-8 h-8 text-white" viewBox="0 0 24 24" fill="currentColor">-->
+<!--                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>-->
+<!--              </svg>-->
+<!--            </div>-->
+<!--            <div>-->
+<!--              <p class="font-bold text-primary text-lg">QuickBooks ProAdvisor Certified</p>-->
+<!--              <p class="text-sm text-warm-gray">Advanced certified in QuickBooks Online</p>-->
+<!--            </div>-->
+<!--          </div>-->
 
-          <div class="hidden md:block w-px h-12 bg-neutral"></div>
+<!--          <div class="hidden md:block w-px h-12 bg-neutral"></div>-->
 
           <!-- Specialization -->
           <div class="flex items-center gap-4">
@@ -367,7 +379,7 @@
         <div class="text-center max-w-2xl mx-auto mb-16">
           <h2 class="text-3xl sm:text-4xl font-bold text-primary">Packages that scale with your business</h2>
           <p class="mt-4 text-lg text-warm-gray">
-            Transparent pricing tiers designed for service businesses at every stage of growth.
+            Flexible packages designed for service businesses at every stage of growth.
           </p>
         </div>
 
@@ -375,13 +387,8 @@
           <!-- Essentials Tier -->
           <article class="flex flex-col p-8 rounded-2xl bg-surface border border-neutral hover:shadow-lg transition-shadow duration-300">
             <div class="mb-6">
-              <h3 class="text-xl font-bold text-primary">Essentials</h3>
+              <h3 class="text-2xl font-bold text-primary">Essentials</h3>
               <p class="mt-2 text-sm text-warm-gray">Best for proprietors and small teams getting started</p>
-            </div>
-            <div class="mb-6">
-              <span class="text-4xl font-extrabold">$495</span>
-              <span class="text-warm-gray text-sm">/month</span>
-              <p class="text-xs text-warm-gray mt-1">Starting at — customized to your needs</p>
             </div>
             <ul class="space-y-3 text-sm flex-grow mb-8">
               <li class="flex items-start gap-2"><span class="text-accent font-bold">&#10003;</span> Monthly bookkeeping &amp; reconciliations</li>
@@ -403,13 +410,8 @@
               </span>
             </div>
             <div class="mb-6 mt-2">
-              <h3 class="text-xl font-bold text-primary">Growth</h3>
+              <h3 class="text-2xl font-bold text-primary">Growth</h3>
               <p class="mt-2 text-sm text-warm-gray">Best for companies with multiple clients</p>
-            </div>
-            <div class="mb-6">
-              <span class="text-4xl font-extrabold text-primary">$895</span>
-              <span class="text-warm-gray text-sm">/month</span>
-              <p class="text-xs text-warm-gray mt-1">Starting at — customized to your needs</p>
             </div>
             <ul class="space-y-3 text-sm flex-grow mb-8">
               <li class="flex items-start gap-2"><span class="text-accent font-bold">&#10003;</span> Everything in Essentials</li>
@@ -427,13 +429,8 @@
           <!-- Premium Tier -->
           <article class="flex flex-col p-8 rounded-2xl bg-surface border border-neutral hover:shadow-lg transition-shadow duration-300">
             <div class="mb-6">
-              <h3 class="text-xl font-bold text-primary">Premium / Controller-Level</h3>
+              <h3 class="text-2xl font-bold text-primary">Premium / Controller-Level</h3>
               <p class="mt-2 text-sm text-warm-gray">Best for established firms needing strategic financial leadership</p>
-            </div>
-            <div class="mb-6">
-              <span class="text-4xl font-extrabold">$1,695</span>
-              <span class="text-warm-gray text-sm">/month</span>
-              <p class="text-xs text-warm-gray mt-1">Starting at — customized to your needs</p>
             </div>
             <ul class="space-y-3 text-sm flex-grow mb-8">
               <li class="flex items-start gap-2"><span class="text-accent font-bold">&#10003;</span> Everything in Growth</li>
@@ -536,20 +533,25 @@
       </div>
 
       <div class="overflow-x-auto pb-4 testimonials-scroll">
-        <div class="flex gap-6 snap-x snap-mandatory pl-4 pr-4 sm:pl-6 sm:pr-6 lg:pl-8 lg:pr-8">
+        <div class="flex justify-center gap-6 snap-x snap-mandatory pl-4 pr-4 sm:pl-6 sm:pr-6 lg:pl-8 lg:pr-8">
             <!-- Testimonial 1 -->
             <div class="bg-surface p-8 rounded-2xl border border-neutral flex flex-col flex-shrink-0 w-80 md:w-[360px] snap-center">
               <div class="flex mb-4 text-accent text-lg tracking-widest">
                 ★★★★★
               </div>
-              <blockquote class="text-warm-gray italic leading-relaxed flex-grow">
-                “Fellows Accounting Solutions has been a game-changer for our consulting firm. Their expertise with project-based invoicing and cash flow forecasting has given us the clarity we needed to scale with confidence.”
+              <blockquote class="quote-clamp text-warm-gray italic leading-relaxed">
+                “I've had the pleasure of working with Chris Fellows as my corporate accountant, and I couldn't recommend him more highly. Chris consistently keeps my corporate books accurate, organized, and fully compliant, giving me confidence that every financial detail is handled correctly.
+
+                His work is always timely, thorough, and dependable. As a business owner, it's invaluable to have an accountant who is proactive, responsive, and committed to accuracy. Chris allows me to focus on running my business, knowing that my financial records are in excellent hands.
+
+                If you're looking for an accountant who is knowledgeable, trustworthy, and reliable, I highly recommend Chris Fellows.”
               </blockquote>
-              <div class="mt-6 flex items-center gap-4">
-                <div class="w-12 h-12 rounded-full bg-accent/10 text-accent flex items-center justify-center font-semibold text-sm">MR</div>
+              <button type="button" class="testimonial-toggle self-start mt-3 text-sm font-semibold text-accent hover:text-accent-hover transition-colors">Read more</button>
+              <div class="mt-auto pt-6 flex items-center gap-4">
+                <div class="w-12 h-12 rounded-full bg-accent/10 text-accent flex items-center justify-center font-semibold text-sm">PK</div>
                 <div>
-                  <div class="font-semibold text-primary">Michael Rivera</div>
-                  <div class="text-sm text-warm-gray">Founder, Rivera Strategy Group</div>
+                  <div class="font-semibold text-primary">Parker Kornegay, RMP®, RSPS</div>
+                  <div class="text-sm text-warm-gray">Broker/Owner, Market South Management</div>
                 </div>
               </div>
             </div>
@@ -559,125 +561,20 @@
               <div class="flex mb-4 text-accent text-lg tracking-widest">
                 ★★★★★
               </div>
-              <blockquote class="text-warm-gray italic leading-relaxed flex-grow">
-                “The team at Fellows is incredibly responsive and proactive. They handle our entire bookkeeping process so we can focus on growing the agency. Best decision we’ve made.”
+              <blockquote class="quote-clamp text-warm-gray italic leading-relaxed">
+                “Chris Fellows has been my trusted accountant for almost 8 years.  When I opened my own business managing 70 + HOA non-profit corporations, I turned to him for the upper-level accounting support.  It was one of the wisest decisions I made as a business owner.”
               </blockquote>
-              <div class="mt-6 flex items-center gap-4">
-                <div class="w-12 h-12 rounded-full bg-accent/10 text-accent flex items-center justify-center font-semibold text-sm">AL</div>
+              <button type="button" class="testimonial-toggle self-start mt-3 text-sm font-semibold text-accent hover:text-accent-hover transition-colors">Read more</button>
+              <div class="mt-auto pt-6 flex items-center gap-4">
+                <div class="w-12 h-12 rounded-full bg-accent/10 text-accent flex items-center justify-center font-semibold text-sm">AR</div>
                 <div>
-                  <div class="font-semibold text-primary">Amanda Lee</div>
-                  <div class="text-sm text-warm-gray">CEO, Lumina Creative</div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Testimonial 3 -->
-            <div class="bg-surface p-8 rounded-2xl border border-neutral flex flex-col flex-shrink-0 w-80 md:w-[360px] snap-center">
-              <div class="flex mb-4 text-accent text-lg tracking-widest">
-                ★★★★★
-              </div>
-              <blockquote class="text-warm-gray italic leading-relaxed flex-grow">
-                “Their QuickBooks setup and monthly reporting have completely transformed how we track profitability across client projects. We finally have the insights we needed.”
-              </blockquote>
-              <div class="mt-6 flex items-center gap-4">
-                <div class="w-12 h-12 rounded-full bg-accent/10 text-accent flex items-center justify-center font-semibold text-sm">DP</div>
-                <div>
-                  <div class="font-semibold text-primary">David Patel</div>
-                  <div class="text-sm text-warm-gray">Managing Partner, Horizon Legal</div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Testimonial 4 -->
-            <div class="bg-surface p-8 rounded-2xl border border-neutral flex flex-col flex-shrink-0 w-80 md:w-[360px] snap-center">
-              <div class="flex mb-4 text-accent text-lg tracking-widest">
-                ★★★★★
-              </div>
-              <blockquote class="text-warm-gray italic leading-relaxed flex-grow">
-                “Switching our bookkeeping to Fellows Accounting Solutions was the best move we made. Their handling of contractor payments and AR has freed up so much time for our engineering team.”
-              </blockquote>
-              <div class="mt-6 flex items-center gap-4">
-                <div class="w-12 h-12 rounded-full bg-accent/10 text-accent flex items-center justify-center font-semibold text-sm">ST</div>
-                <div>
-                  <div class="font-semibold text-primary">Sarah Thompson</div>
-                  <div class="text-sm text-warm-gray">Partner, Thompson Engineering</div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Testimonial 5 -->
-            <div class="bg-surface p-8 rounded-2xl border border-neutral flex flex-col flex-shrink-0 w-80 md:w-[360px] snap-center">
-              <div class="flex mb-4 text-accent text-lg tracking-widest">
-                ★★★★★
-              </div>
-              <blockquote class="text-warm-gray italic leading-relaxed flex-grow">
-                “Fellows completely revamped our QuickBooks workflow. We now have clear visibility into project margins and our cash flow forecasts are actually reliable.”
-              </blockquote>
-              <div class="mt-6 flex items-center gap-4">
-                <div class="w-12 h-12 rounded-full bg-accent/10 text-accent flex items-center justify-center font-semibold text-sm">JC</div>
-                <div>
-                  <div class="font-semibold text-primary">James Chen</div>
-                  <div class="text-sm text-warm-gray">Director, Summit Digital Agency</div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Testimonial 6 -->
-            <div class="bg-surface p-8 rounded-2xl border border-neutral flex flex-col flex-shrink-0 w-80 md:w-[360px] snap-center">
-              <div class="flex mb-4 text-accent text-lg tracking-widest">
-                ★★★★★
-              </div>
-              <blockquote class="text-warm-gray italic leading-relaxed flex-grow">
-                “The proactive support and detailed reporting from Fellows have been outstanding. They truly understand the needs of growing professional service firms like ours.”
-              </blockquote>
-              <div class="mt-6 flex items-center gap-4">
-                <div class="w-12 h-12 rounded-full bg-accent/10 text-accent flex items-center justify-center font-semibold text-sm">EV</div>
-                <div>
-                  <div class="font-semibold text-primary">Elena Vargas</div>
-                  <div class="text-sm text-warm-gray">Founder, Vargas PR Group</div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Testimonial 7 -->
-            <div class="bg-surface p-8 rounded-2xl border border-neutral flex flex-col flex-shrink-0 w-80 md:w-[360px] snap-center">
-              <div class="flex mb-4 text-accent text-lg tracking-widest">
-                ★★★★★
-              </div>
-              <blockquote class="text-warm-gray italic leading-relaxed flex-grow">
-                “Fellows Accounting Solutions has transformed how we manage our finances. Their QuickBooks expertise and proactive advice have given us the peace of mind to focus on growing our consulting practice.”
-              </blockquote>
-              <div class="mt-6 flex items-center gap-4">
-                <div class="w-12 h-12 rounded-full bg-accent/10 text-accent flex items-center justify-center font-semibold text-sm">OB</div>
-                <div>
-                  <div class="font-semibold text-primary">Olivia Bennett</div>
-                  <div class="text-sm text-warm-gray">Founder, Bennett &amp; Co. Consulting</div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Testimonial 8 -->
-            <div class="bg-surface p-8 rounded-2xl border border-neutral flex flex-col flex-shrink-0 w-80 md:w-[360px] snap-center">
-              <div class="flex mb-4 text-accent text-lg tracking-widest">
-                ★★★★★
-              </div>
-              <blockquote class="text-warm-gray italic leading-relaxed flex-grow">
-                “The level of detail and partnership we get from the team is exceptional. Thanks to their work, we finally have accurate project-level profitability data every month.”
-              </blockquote>
-              <div class="mt-6 flex items-center gap-4">
-                <div class="w-12 h-12 rounded-full bg-accent/10 text-accent flex items-center justify-center font-semibold text-sm">RP</div>
-                <div>
-                  <div class="font-semibold text-primary">Raj Patel</div>
-                  <div class="text-sm text-warm-gray">Managing Director, Apex Digital</div>
+                  <div class="font-semibold text-primary">Alan Roberds</div>
+                  <div class="text-sm text-warm-gray">Owner, Keystone Association Managers</div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <p class="text-center text-xs text-warm-gray mt-1">← Scroll or swipe horizontally to see more →</p>
-      </div>
     </section>
 
     <!-- ============================================================
@@ -947,6 +844,19 @@
         closeModal();
         alert('Thank you, ' + name + '! We\'ll be in touch within one business day to schedule your discovery call.');
         bookingForm.reset();
+      });
+
+      // --- Testimonial read-more toggles ---
+      document.querySelectorAll('.testimonial-toggle').forEach(function (btn) {
+        const quote = btn.previousElementSibling;
+        if (quote.scrollHeight <= quote.clientHeight + 1) {
+          btn.style.display = 'none';
+          return;
+        }
+        btn.addEventListener('click', function () {
+          const expanded = quote.classList.toggle('expanded');
+          btn.textContent = expanded ? 'Read less' : 'Read more';
+        });
       });
     })();
   </script>

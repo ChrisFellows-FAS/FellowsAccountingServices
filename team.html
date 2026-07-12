@@ -102,6 +102,18 @@
       transform: translateY(0);
       pointer-events: auto;
     }
+    /* Team bio read-more clamp */
+    .bio-clamp {
+      display: -webkit-box;
+      -webkit-line-clamp: 6;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      min-height: 9.75em;
+    }
+    .bio-clamp.expanded {
+      -webkit-line-clamp: unset;
+      overflow: visible;
+    }
   </style>
 </head>
 <body class="font-sans text-primary antialiased bg-base">
@@ -207,52 +219,54 @@
             <div class="p-8">
               <h3 class="text-2xl font-bold text-primary">Chris Fellows</h3>
               <p class="text-accent font-medium">Founder</p>
-              <p class="mt-4 text-sm text-warm-gray leading-relaxed">
-                With over 30 years of experience in accounting and bookkeeping across service industries, Chris founded the firm to bring clarity and strategic partnership to growing businesses.
+              <p class="bio-clamp mt-4 text-sm text-warm-gray leading-relaxed">
+                With more than three decades of experience, Chris Fellows brings deep, hands on expertise to every facet of accounting. His career spans a broad range of industries and responsibilities, from foundational data entry to strategic leadership as a CFO. Chris is known for his ability to transform accounting operations, by building teams, designing procedures, and creating systems that enhance accuracy, efficiency, and productivity.
+                <br/><br/>
+                A proud graduate of the University of Georgia, Chris earned both his bachelor’s and master’s degrees in accounting. His academic foundation, combined with decades of practical experience, has made him a trusted advisor to business owners and board members. He excels at presenting clear, actionable financial insights that empower leaders to make informed decisions. Chris also acts as a bridge between clients and their audit and tax partners, ensuring smooth communication and strong professional relationships.
+                <br/><br/>
+                When he’s not immersed in financial strategy, Chris enjoys staying active, spending time with loved ones, exploring the outdoors, and celebrating UGA football every fall.
+
               </p>
-              <div class="mt-5 pt-4 border-t border-neutral/60 text-xs text-warm-gray">
-                QuickBooks Advanced Certified • 30+ years experience
-              </div>
+<!--              <div class="mt-5 pt-4 border-t border-neutral/60 text-xs text-warm-gray">-->
+<!--                QuickBooks Advanced Certified • 30+ years experience-->
+<!--              </div>-->
             </div>
           </article>
 
           <!-- Rebecca Duncan -->
           <article class="team-card bg-surface rounded-2xl border border-neutral overflow-hidden">
-            <div class="h-80 bg-gradient-to-br from-accent-50 to-neutral/20 flex flex-col items-center justify-center border-b border-neutral/40">
-              <div class="w-24 h-24 rounded-full bg-surface border border-neutral/60 shadow-sm flex items-center justify-center">
-                <span class="text-accent text-3xl font-bold">RD</span>
-              </div>
-              <p class="mt-4 text-xs text-neutral">Photo coming soon</p>
+            <div class="overflow-hidden bg-surface">
+              <img src="Assets/Rebecca-Duncan.png" alt="Rebecca Duncan" class="w-full object-cover object-top max-h-80">
             </div>
             <div class="p-8">
-              <h3 class="text-2xl font-bold text-primary">Rebecca Duncan</h3>
+              <h3 class="text-2xl font-bold text-primary">Becky Duncan</h3>
               <p class="text-accent font-medium">Senior Accounting Specialist</p>
-              <p class="mt-4 text-sm text-warm-gray leading-relaxed">
-                Rebecca brings 15 years of hands-on experience in detailed bookkeeping, reconciliations, and financial reporting for consulting and professional services firms.
+              <p class="bio-clamp mt-4 text-sm text-warm-gray leading-relaxed">
+                Becky Duncan is an accounting and governance leader with over a decade of experience driving healthy, audit-ready balance sheet operations within complex, global organizations. Specializing in SOX-compliant internal controls, statutory reporting, and large-scale accounting operations, she most recently served as an Accounting Manager, where she led global governance programs and oversaw critical financial platforms. Her extensive background also includes managing compliance, complex auditing, and technical financial analysis.  Known for her collaborative leadership and clear executive communication, Becky is a trusted partner to senior leadership and auditors, adept at leveraging data and automation to deliver actionable insights, scalable governance models, and sustainable process improvements.
+                <br/><br/>
+                Outside of her love for accounting, Becky is an avid runner and a dedicated community volunteer who passionately supports local foster youth and animal rescues. She enjoys spending her downtime with her husband and two daughters.
+
               </p>
-              <div class="mt-5 pt-4 border-t border-neutral/60 text-xs text-warm-gray">
-                QuickBooks ProAdvisor • Project &amp; client accounting expert
-              </div>
+<!--              <div class="mt-5 pt-4 border-t border-neutral/60 text-xs text-warm-gray">-->
+<!--                QuickBooks ProAdvisor • Project &amp; client accounting expert-->
+<!--              </div>-->
             </div>
           </article>
 
           <!-- Steven Fellows -->
           <article class="team-card bg-surface rounded-2xl border border-neutral overflow-hidden">
-            <div class="h-80 bg-gradient-to-br from-accent-50 to-neutral/20 flex flex-col items-center justify-center border-b border-neutral/40">
-              <div class="w-24 h-24 rounded-full bg-surface border border-neutral/60 shadow-sm flex items-center justify-center">
-                <span class="text-accent text-3xl font-bold">SF</span>
-              </div>
-              <p class="mt-4 text-xs text-neutral">Photo coming soon</p>
+            <div class="overflow-hidden bg-surface">
+              <img src="Assets/Steven-Fellows.jpeg" alt="Steven Fellows" class="w-full object-cover object-top max-h-80">
             </div>
             <div class="p-8">
               <h3 class="text-2xl font-bold text-primary">Steven Fellows</h3>
               <p class="text-accent font-medium">Senior Accounting Specialist</p>
-              <p class="mt-4 text-sm text-warm-gray leading-relaxed">
-                Steven specializes in month-end closes, cash flow forecasting, and advanced QuickBooks optimization. He works closely with clients on strategic financial insights.
+              <p class="bio-clamp mt-4 text-sm text-warm-gray leading-relaxed">
+                Steven Fellows is a finance and accounting professional based in Atlanta. He currently serves in corporate accounting for a mid-sized residential asset management firm while moonlighting as a food & beverage manufacturing consultant. Steven and his wife enjoy spending time with family, music, and nature.
               </p>
-              <div class="mt-5 pt-4 border-t border-neutral/60 text-xs text-warm-gray">
-                18 years experience • QuickBooks Advanced Certified
-              </div>
+<!--              <div class="mt-5 pt-4 border-t border-neutral/60 text-xs text-warm-gray">-->
+<!--                18 years experience • QuickBooks Advanced Certified-->
+<!--              </div>-->
             </div>
           </article>
 
@@ -486,6 +500,20 @@
         closeModal();
         alert('Thank you, ' + name + '! We\'ll be in touch within one business day to schedule your discovery call.');
         bookingForm.reset();
+      });
+
+      // --- Team bio read-more toggles ---
+      document.querySelectorAll('.bio-clamp').forEach(function (bio) {
+        if (bio.scrollHeight <= bio.clientHeight + 1) return;
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'bio-toggle mt-3 text-sm font-semibold text-accent hover:text-accent-hover transition-colors';
+        btn.textContent = 'Read more';
+        bio.insertAdjacentElement('afterend', btn);
+        btn.addEventListener('click', function () {
+          const expanded = bio.classList.toggle('expanded');
+          btn.textContent = expanded ? 'Read less' : 'Read more';
+        });
       });
     })();
   </script>
