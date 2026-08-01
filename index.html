@@ -113,6 +113,61 @@
       -webkit-line-clamp: unset;
       overflow: visible;
     }
+
+    /* Partner / tools logo strip — open (no cards)
+       Explicit height avoids Tailwind img { height:auto } + max-height collapse on SVGs */
+    .partner-logo-item {
+      transition: transform 0.2s ease, opacity 0.2s ease;
+      opacity: 0.92;
+    }
+    .partner-logo-item:hover {
+      opacity: 1;
+      transform: scale(1.05);
+    }
+    .partner-logo {
+      display: block;
+      height: 3.25rem;
+      width: auto;
+      max-width: min(14rem, 100%);
+      object-fit: contain;
+    }
+    @media (min-width: 1024px) {
+      .partner-logo {
+        height: 3.75rem;
+        max-width: 15rem;
+      }
+    }
+    .partner-logo-teams-icon {
+      height: 3rem;
+      width: 3rem;
+      max-width: 3rem;
+    }
+    @media (min-width: 1024px) {
+      .partner-logo-teams-icon {
+        height: 3.5rem;
+        width: 3.5rem;
+        max-width: 3.5rem;
+      }
+    }
+    .partner-wordmark-ramp {
+      font-family: Inter, system-ui, -apple-system, sans-serif;
+      font-weight: 800;
+      font-size: 2.35rem;
+      letter-spacing: -0.06em;
+      color: #0B0D0E;
+      line-height: 1;
+    }
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
   </style>
 </head>
 <body class="font-sans text-primary antialiased bg-base">
@@ -235,44 +290,7 @@
     </section>
 
     <!-- ============================================================
-         2. TRUST BAR
-         ============================================================ -->
-    <section id="trust" class="py-10 bg-base border-y border-neutral">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-12 text-center md:text-left">
-          <!-- QuickBooks ProAdvisor Badge -->
-<!--          <div class="flex items-center gap-4">-->
-<!--            <div class="w-14 h-14 rounded-xl bg-quickbooks flex items-center justify-center flex-shrink-0">-->
-<!--              <svg class="w-8 h-8 text-white" viewBox="0 0 24 24" fill="currentColor">-->
-<!--                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>-->
-<!--              </svg>-->
-<!--            </div>-->
-<!--            <div>-->
-<!--              <p class="font-bold text-primary text-lg">QuickBooks ProAdvisor Certified</p>-->
-<!--              <p class="text-sm text-warm-gray">Advanced certified in QuickBooks Online</p>-->
-<!--            </div>-->
-<!--          </div>-->
-
-<!--          <div class="hidden md:block w-px h-12 bg-neutral"></div>-->
-
-          <!-- Specialization -->
-          <div class="flex items-center gap-4">
-            <div class="w-14 h-14 rounded-xl bg-accent flex items-center justify-center flex-shrink-0">
-              <svg class="w-8 h-8 text-surface" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-              </svg>
-            </div>
-            <div>
-              <p class="font-bold text-primary text-lg">Specialized in Professional Service Companies</p>
-              <p class="text-sm text-warm-gray">Built for agencies, firms, and project-based teams</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============================================================
-         3. SERVICES OVERVIEW
+         2. SERVICES OVERVIEW
          ============================================================ -->
     <section id="services" class="py-20 lg:py-28">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -331,12 +349,12 @@
             <div class="w-12 h-12 rounded-xl bg-accent/10 text-accent flex items-center justify-center mb-5 group-hover:bg-accent group-hover:text-surface transition-colors">
               <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
             </div>
-            <h3 class="text-xl font-bold text-primary mb-2">QuickBooks Setup, Optimization &amp; Training</h3>
+            <h3 class="text-xl font-bold text-primary mb-2">QuickBooks Setup &amp; Optimization</h3>
             <p class="text-warm-gray text-sm mb-4">A QuickBooks environment configured for how your team actually works.</p>
             <ul class="space-y-2 text-sm text-warm-gray">
               <li class="flex items-start gap-2"><span class="text-accent mt-0.5">&#10003;</span> Chart of accounts tailored to your industry</li>
               <li class="flex items-start gap-2"><span class="text-accent mt-0.5">&#10003;</span> App integrations and workflow automation</li>
-              <li class="flex items-start gap-2"><span class="text-accent mt-0.5">&#10003;</span> Team training and documentation</li>
+              <li class="flex items-start gap-2"><span class="text-accent mt-0.5">&#10003;</span> Documentation</li>
             </ul>
           </article>
 
@@ -372,9 +390,9 @@
     </section>
 
     <!-- ============================================================
-         4. PACKAGES SECTION
+         3. PACKAGES SECTION
          ============================================================ -->
-    <section id="packages" class="py-20 lg:py-28 bg-base">
+    <section id="packages" class="py-20 lg:py-28 bg-surface">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center max-w-2xl mx-auto mb-16">
           <h2 class="text-3xl sm:text-4xl font-bold text-primary">Packages that scale with your business</h2>
@@ -388,14 +406,14 @@
           <article class="flex flex-col p-8 rounded-2xl bg-surface border border-neutral hover:shadow-lg transition-shadow duration-300">
             <div class="mb-6">
               <h3 class="text-2xl font-bold text-primary">Essentials</h3>
-              <p class="mt-2 text-sm text-warm-gray">Best for proprietors and small teams getting started</p>
+              <p class="mt-2 text-sm text-warm-gray">This covers all month-end close procedures and reporting, including:</p>
             </div>
             <ul class="space-y-3 text-sm flex-grow mb-8">
-              <li class="flex items-start gap-2"><span class="text-accent font-bold">&#10003;</span> Monthly bookkeeping &amp; reconciliations</li>
-              <li class="flex items-start gap-2"><span class="text-accent font-bold">&#10003;</span> Basic invoicing support</li>
-              <li class="flex items-start gap-2"><span class="text-accent font-bold">&#10003;</span> Standard monthly financial reports</li>
-              <li class="flex items-start gap-2"><span class="text-accent font-bold">&#10003;</span> Email support (48-hr response)</li>
-              <li class="flex items-start gap-2"><span class="text-accent font-bold">&#10003;</span> Up to 100 transactions/month</li>
+              <li class="flex items-start gap-2"><span class="text-accent font-bold">&#10003;</span> Month-end bank reconciliations</li>
+              <li class="flex items-start gap-2"><span class="text-accent font-bold">&#10003;</span> Month-end credit card reconciliations</li>
+              <li class="flex items-start gap-2"><span class="text-accent font-bold">&#10003;</span> Reconcile and review financial statements</li>
+              <li class="flex items-start gap-2"><span class="text-accent font-bold">&#10003;</span> Prepare monthly basic accounting package</li>
+              <li class="flex items-start gap-2"><span class="text-accent font-bold">&#10003;</span> Email support (48-hour response)</li>
             </ul>
             <button type="button" class="open-modal-btn w-full py-3.5 rounded-xl border-2 border-primary text-primary font-semibold hover:bg-primary/10 transition-colors">
               Book a Discovery Call
@@ -411,15 +429,14 @@
             </div>
             <div class="mb-6 mt-2">
               <h3 class="text-2xl font-bold text-primary">Growth</h3>
-              <p class="mt-2 text-sm text-warm-gray">Best for companies with multiple clients</p>
+              <p class="mt-2 text-sm text-warm-gray">This includes Essentials plus the following:</p>
             </div>
             <ul class="space-y-3 text-sm flex-grow mb-8">
-              <li class="flex items-start gap-2"><span class="text-accent font-bold">&#10003;</span> Everything in Essentials</li>
-              <li class="flex items-start gap-2"><span class="text-accent font-bold">&#10003;</span> Project invoicing &amp; AR management</li>
-              <li class="flex items-start gap-2"><span class="text-accent font-bold">&#10003;</span> Month-end close</li>
-              <li class="flex items-start gap-2"><span class="text-accent font-bold">&#10003;</span> Cash flow forecasting reports</li>
-              <li class="flex items-start gap-2"><span class="text-accent font-bold">&#10003;</span> Monthly review call (1 hour)</li>
-              <li class="flex items-start gap-2"><span class="text-accent font-bold">&#10003;</span> Up to 250 transactions/month</li>
+              <li class="flex items-start gap-2"><span class="text-accent font-bold">&#10003;</span> Payroll processing, including monthly, quarterly, and annual payroll tax reporting</li>
+              <li class="flex items-start gap-2"><span class="text-accent font-bold">&#10003;</span> Accounts Receivable management</li>
+              <li class="flex items-start gap-2"><span class="text-accent font-bold">&#10003;</span> Accounts Payable management</li>
+              <li class="flex items-start gap-2"><span class="text-accent font-bold">&#10003;</span> Prepare monthly advanced accounting package</li>
+              <li class="flex items-start gap-2"><span class="text-accent font-bold">&#10003;</span> Monthly review call</li>
             </ul>
             <button type="button" class="open-modal-btn w-full py-3.5 rounded-xl bg-primary text-surface font-semibold hover:bg-primary-dark transition-colors shadow-lg shadow-primary/25">
               Book a Discovery Call
@@ -429,16 +446,14 @@
           <!-- Premium Tier -->
           <article class="flex flex-col p-8 rounded-2xl bg-surface border border-neutral hover:shadow-lg transition-shadow duration-300">
             <div class="mb-6">
-              <h3 class="text-2xl font-bold text-primary">Premium / Controller-Level</h3>
-              <p class="mt-2 text-sm text-warm-gray">Best for established firms needing strategic financial leadership</p>
+              <h3 class="text-2xl font-bold text-primary">Premium</h3>
+              <p class="mt-2 text-sm text-warm-gray">This includes Growth plus the following:</p>
             </div>
             <ul class="space-y-3 text-sm flex-grow mb-8">
-              <li class="flex items-start gap-2"><span class="text-accent font-bold">&#10003;</span> Everything in Growth</li>
               <li class="flex items-start gap-2"><span class="text-accent font-bold">&#10003;</span> Client &amp; project profitability analysis</li>
-              <li class="flex items-start gap-2"><span class="text-accent font-bold">&#10003;</span> Custom KPI dashboards</li>
+              <li class="flex items-start gap-2"><span class="text-accent font-bold">&#10003;</span> Custom KPI reporting</li>
+              <li class="flex items-start gap-2"><span class="text-accent font-bold">&#10003;</span> Fractional CFO services</li>
               <li class="flex items-start gap-2"><span class="text-accent font-bold">&#10003;</span> Year-end close &amp; CPA coordination</li>
-              <li class="flex items-start gap-2"><span class="text-accent font-bold">&#10003;</span> Quarterly advisory sessions</li>
-              <li class="flex items-start gap-2"><span class="text-accent font-bold">&#10003;</span> Unlimited transactions</li>
             </ul>
             <button type="button" class="open-modal-btn w-full py-3.5 rounded-xl border-2 border-primary text-primary font-semibold hover:bg-primary/10 transition-colors">
               Book a Discovery Call
@@ -450,6 +465,53 @@
         <p class="mt-10 text-center text-sm text-warm-gray max-w-xl mx-auto">
           All pricing is customized based on your transaction volume, team size, and specific business needs. Book a discovery call for a tailored quote.
         </p>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         4. WHO WE WORK WITH
+         ============================================================ -->
+    <section id="who-we-work-with" class="py-20 lg:py-28 bg-base relative overflow-hidden">
+      <!-- Soft gold accent wash (matches premium palette without competing with CTAs) -->
+      <div class="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-accent to-transparent opacity-50"></div>
+      <div class="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-accent to-transparent opacity-50"></div>
+      <div class="pointer-events-none absolute -top-24 right-0 w-72 h-72 bg-accent/5 rounded-full blur-3xl"></div>
+      <div class="pointer-events-none absolute -bottom-24 left-0 w-72 h-72 bg-primary/5 rounded-full blur-3xl"></div>
+
+      <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-2xl mx-auto mb-14 lg:mb-16">
+          <p class="text-xs sm:text-sm font-bold uppercase tracking-[0.2em] text-accent mb-3">Integrations &amp; platforms</p>
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-primary">Who we work with</h2>
+          <p class="mt-5 text-lg text-warm-gray leading-relaxed">
+            The tools we use every day to keep your books accurate, your payroll clean, and your team connected.
+          </p>
+        </div>
+
+        <!-- Logo strip — open layout, no cards -->
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-x-8 gap-y-10 sm:gap-x-12 sm:gap-y-12 lg:gap-x-16 lg:gap-y-14 items-center justify-items-center">
+          <div class="partner-logo-item flex items-center justify-center">
+            <img src="Assets/logo-quickbooks-wordmark.svg" alt="QuickBooks" class="partner-logo" width="220" height="56">
+          </div>
+          <div class="partner-logo-item flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-3">
+            <img src="Assets/logo-adp-run-wordmark.svg" alt="" class="partner-logo" width="140" height="50" aria-hidden="true">
+            <span class="text-2xl sm:text-3xl font-extrabold tracking-wide" style="color:#ee2722">RUN</span>
+            <span class="sr-only">ADP RUN</span>
+          </div>
+          <div class="partner-logo-item flex items-center justify-center">
+            <img src="Assets/logo-vantaca-wordmark.svg" alt="Vantaca" class="partner-logo" width="200" height="58">
+          </div>
+          <div class="partner-logo-item flex items-center justify-center">
+            <span class="partner-wordmark-ramp" aria-label="Ramp">Ramp</span>
+          </div>
+          <div class="partner-logo-item flex items-center justify-center">
+            <img src="Assets/logo-zoom-wordmark.svg" alt="Zoom" class="partner-logo" width="180" height="45">
+          </div>
+          <div class="partner-logo-item flex items-center justify-center gap-3">
+            <img src="Assets/logo-microsoft-teams-wordmark.svg" alt="" class="partner-logo partner-logo-teams-icon" width="48" height="48" aria-hidden="true">
+            <span class="text-base sm:text-lg font-semibold leading-tight text-left" style="color:#5059C9">Microsoft<br class="hidden sm:inline"> Teams</span>
+            <span class="sr-only">Microsoft Teams</span>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -533,9 +595,9 @@
       </div>
 
       <div class="overflow-x-auto pb-4 testimonials-scroll">
-        <div class="flex justify-center gap-6 snap-x snap-mandatory pl-4 pr-4 sm:pl-6 sm:pr-6 lg:pl-8 lg:pr-8">
+        <div class="flex justify-center gap-8 sm:gap-10 lg:gap-12 snap-x snap-mandatory px-4 sm:px-6 lg:px-8 max-w-screen-2xl mx-auto w-full">
             <!-- Testimonial 1 -->
-            <div class="bg-surface p-8 rounded-2xl border border-neutral flex flex-col flex-shrink-0 w-80 md:w-[360px] snap-center">
+            <div class="bg-surface p-8 rounded-2xl border border-neutral flex flex-col flex-shrink-0 w-[22rem] sm:w-[26rem] md:w-0 md:flex-1 md:min-w-[18rem] snap-center">
               <div class="flex mb-4 text-accent text-lg tracking-widest">
                 ★★★★★
               </div>
@@ -547,17 +609,14 @@
                 If you're looking for an accountant who is knowledgeable, trustworthy, and reliable, I highly recommend Chris Fellows.”
               </blockquote>
               <button type="button" class="testimonial-toggle self-start mt-3 text-sm font-semibold text-accent hover:text-accent-hover transition-colors">Read more</button>
-              <div class="mt-auto pt-6 flex items-center gap-4">
-                <div class="w-12 h-12 rounded-full bg-accent/10 text-accent flex items-center justify-center font-semibold text-sm">PK</div>
-                <div>
-                  <div class="font-semibold text-primary">Parker Kornegay, RMP®, RSPS</div>
-                  <div class="text-sm text-warm-gray">Broker/Owner, Market South Management</div>
-                </div>
+              <div class="mt-auto pt-6">
+                <div class="font-semibold text-primary">Parker Kornegay, RMP®, RSPS</div>
+                <div class="text-sm text-warm-gray">Broker/Owner, Market South Management</div>
               </div>
             </div>
 
             <!-- Testimonial 2 -->
-            <div class="bg-surface p-8 rounded-2xl border border-neutral flex flex-col flex-shrink-0 w-80 md:w-[360px] snap-center">
+            <div class="bg-surface p-8 rounded-2xl border border-neutral flex flex-col flex-shrink-0 w-[22rem] sm:w-[26rem] md:w-0 md:flex-1 md:min-w-[18rem] snap-center">
               <div class="flex mb-4 text-accent text-lg tracking-widest">
                 ★★★★★
               </div>
@@ -565,12 +624,24 @@
                 “Chris Fellows has been my trusted accountant for almost 8 years.  When I opened my own business managing 70 + HOA non-profit corporations, I turned to him for the upper-level accounting support.  It was one of the wisest decisions I made as a business owner.”
               </blockquote>
               <button type="button" class="testimonial-toggle self-start mt-3 text-sm font-semibold text-accent hover:text-accent-hover transition-colors">Read more</button>
-              <div class="mt-auto pt-6 flex items-center gap-4">
-                <div class="w-12 h-12 rounded-full bg-accent/10 text-accent flex items-center justify-center font-semibold text-sm">AR</div>
-                <div>
-                  <div class="font-semibold text-primary">Alan Roberds</div>
-                  <div class="text-sm text-warm-gray">Owner, Keystone Association Managers</div>
-                </div>
+              <div class="mt-auto pt-6">
+                <div class="font-semibold text-primary">Alan Roberds</div>
+                <div class="text-sm text-warm-gray">Owner, Keystone Association Managers</div>
+              </div>
+            </div>
+
+            <!-- Testimonial 3 -->
+            <div class="bg-surface p-8 rounded-2xl border border-neutral flex flex-col flex-shrink-0 w-[22rem] sm:w-[26rem] md:w-0 md:flex-1 md:min-w-[18rem] snap-center">
+              <div class="flex mb-4 text-accent text-lg tracking-widest">
+                ★★★★★
+              </div>
+              <blockquote class="quote-clamp text-warm-gray italic leading-relaxed">
+                “Working with Chris has been a true game-changer for our camp. He handles our finances with incredible accuracy and timeliness, giving us complete peace of mind. He streamlined and simplified our budgeting and has found ways to reduce our overhead. He masterfully manages our complex seasonal payroll, high volume of camper registrations, and multifaceted donations. Thanks to his guidance, we can stop worrying about our budget, and focus on giving our campers an unforgettable experience. He is a vital and integral part of our camp family!”
+              </blockquote>
+              <button type="button" class="testimonial-toggle self-start mt-3 text-sm font-semibold text-accent hover:text-accent-hover transition-colors">Read more</button>
+              <div class="mt-auto pt-6">
+                <div class="font-semibold text-primary">Steve Gibson</div>
+                <div class="text-sm text-warm-gray">Camp Director, Camp Swamp</div>
               </div>
             </div>
           </div>
@@ -606,11 +677,6 @@
                 alt="Chris Fellows, Founder of Fellows Accounting Solutions"
                 class="w-full rounded-2xl shadow-lg border border-neutral/60"
               >
-              <!-- Floating stat card -->
-              <div class="absolute -bottom-6 -left-12 bg-surface rounded-xl shadow-xl p-4 border border-neutral/60 hidden sm:block">
-                <p class="text-2xl font-bold text-accent">98%</p>
-                <p class="text-xs text-warm-gray">Client retention rate</p>
-              </div>
             </div>
             <p class="mt-3 text-center text-sm text-neutral">Chris Fellows - Founder</p>
           </div>
